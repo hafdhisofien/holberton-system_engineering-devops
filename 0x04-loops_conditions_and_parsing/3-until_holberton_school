@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+SAY=0
+
+until [ "$SAY" -eq 10 ];
+do
+  echo "Holberton School"
+  let SAY=SAY+1
+done

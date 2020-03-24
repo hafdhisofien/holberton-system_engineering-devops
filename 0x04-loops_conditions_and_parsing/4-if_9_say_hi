@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+i=0
+SAY="Holberton School"
+while [ $i -lt 10 ]
+do
+	
+	if [ $i = 9 ]
+	then
+		echo "Hi"
+		fi
+		echo "$SAY"
+		let i++
+done

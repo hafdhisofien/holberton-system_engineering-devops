@@ -1,0 +1,1 @@
+__this si the  Shell, init files, variables and expansions folder__

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+i=1
+SAY="Holberton School"
+while [ $i -lt 11 ]
+do
+	
+	if [ $i = 4 ]
+	then
+		echo "bad luck"
+		     elif [ $i = 8 ]
+		     	  then
+					 echo "good luck"
+					 else
+						echo "$SAY"
+						fi
+						let i++
+done

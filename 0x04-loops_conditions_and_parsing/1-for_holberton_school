@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bash script that displays Holberton School 10 times.
+SAY="Holberton School"
+for _ in {1..10}
+do
+	echo "$SAY"
+
+done
