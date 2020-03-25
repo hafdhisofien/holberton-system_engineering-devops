@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# To debugg this error all you need to do is restart apache server
+
+sudo service apache2 restart
