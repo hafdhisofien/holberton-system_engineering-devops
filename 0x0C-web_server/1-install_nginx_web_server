@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Bash script that installs nginx on our ssh
+# safety measure
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo sed -i '0,/listen.*/s/listen.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
