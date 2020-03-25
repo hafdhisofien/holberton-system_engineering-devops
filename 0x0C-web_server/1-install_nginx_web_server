@@ -2,7 +2,7 @@
 # Bash script that installs nginx on our ssh
 sudo apt-get update
 sudo apt-get -y install nginx
+sudo sed -i '0,/listen.*/s/listen.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
 sudo ufw allow 'Nginx HTTP'
-echo "Holberton School" > /var/www/html/index.html
-sudo service nginx start
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo service nginx restart
