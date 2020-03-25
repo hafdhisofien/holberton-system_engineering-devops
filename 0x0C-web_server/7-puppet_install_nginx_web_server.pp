@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 # Configurating our nginx server using a puppet manifest
 
-exec {'Install nginx':
-command  => 'sudo apt update && sudo apt -y install nginx && echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html && redirect="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n" && sudo sed -i "37i $redirect" /etc/nginx/sites-enabled/default && sudo service nginx restart',
-listen_port => 80,
-provider => shell,
+package { 'nginx':
+  ensure => installed,
+}
+
+exec { 'Holberton':
+  provider => shell,
+  command  => 'sudo echo "Holberton School" | sudo tee  /usr/share/nginx/html/index.html',
+}
+
+file_line { 'redirection, 301':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+}
+
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
 }
