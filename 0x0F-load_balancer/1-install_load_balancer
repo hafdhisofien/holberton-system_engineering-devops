@@ -4,5 +4,5 @@
 sudo apt-get -y update
 sudo apt-get -y update
 sudo apt-get install -y haproxy
-sudo sed -i "$ a frontend load_balancer\n    bind *:80\n    mode http\n    default_backend web_servers\nbackend web_servers\n    balance roundrobin\n    server server1 35.229.101.247 check\n    server server2  52.201.75.67" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a frontend load_balancer\n    bind *:80\n    mode http\n    default_backend web_servers\nbackend web_servers\n    balance roundrobin\n    server gc-1114-web-01-1585070639 35.229.101.247 check\n server server2.sofienhafdhi.tech  52.201.75.67" /etc/haproxy/haproxy.cfg
 sudo service haproxy start
