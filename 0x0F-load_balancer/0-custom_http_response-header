@@ -6,6 +6,5 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sudo sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+sudo sed -i "63 i\ \tadd_header X-Served-By $hostname;\n" /etc/nginx/sites-enabled/default
 sudo service nginx start
