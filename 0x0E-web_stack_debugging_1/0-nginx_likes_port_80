@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # script to fix the nginx server
-sed -i '0,/listen.*/s/listen.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
-pkill nginx
-service nginx restart
+sudo rm /etc/nginx/sites-enabled/default
+sed -i '0,/listen.*/s/listen.*/listen 80 default_server;/'
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
