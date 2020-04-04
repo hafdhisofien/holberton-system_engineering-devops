@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Using what you did for task #0, make your fix short and sweet.
-sed -i '0,/listen.*/s/listen.*/listen 80 default_server;/' /etc/nginx/sites-enabled/default
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
 pkill -o nginx
