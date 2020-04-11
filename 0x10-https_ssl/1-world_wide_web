@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2086
+# Bash script that will display information about subdomains
+print_info ()
+{
+    domain="$1"
+    subdomain="$2"
+    dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
+}
+if [ -z "$2" ]
+then
+    print_info "$1" "www"
+    print_info "$1" "lb-01"
+    print_info "$1" "web-01"
+    print_info "$1" "web-02"
+else
+    print_info "$1" "$2"
+fi
